@@ -1,3 +1,7 @@
+//*Maria Luiza de Oliveira R Pereira*//
+//*11811EBI023*//
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
