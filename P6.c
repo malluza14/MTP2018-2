@@ -1,52 +1,48 @@
-//*Maria Luiza de Oliveira R Pereira*
-// *11811EBI023*//
-
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+	
 
-
-int sm(int len, int *v)
-
+typedef struct
 {
+	float x;
+	float y;
+ }pt;
+	
 
-   if(len>0)
-
-        return *v+sm(len-1, v+1);
-
-    else
-
-        return 0.0;
-
+pt * gera_pontos(int N) 
+{
+	   pt* p = (pt*) calloc(N,sizeof(pt));
+	   int i;
+	   fori = 0; i < N; i++)
+             {
+	       p[i].x = cos(i*2.0*M_PI/(N-1));
+	       p[i].y = sin(i*2.0*M_PI/(N-1));
+	    }
+	    return p;
 }
+	
 
-float media(int x, int y)
-
+void mostra_pontos(pt* p_i, pt * p_f) 
 {
-
-    return (float)x/(float)y;
-
+	    if(p_i < p_f) 
+	    {
+	        printf("(%.3f, %.3f)\n", p_i->x, p_i->y);
+	        mostra_pontos(p_i+1, p_f);
+	    }
 }
+	
 
-int main ()
-
+int main()
 {
-
-	int vet[]={0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
-
-	int tamanho=0, i=0;
-
-	printf("Quantidade a ser adicionada:\n");
-
-	scanf("%d", &tamanho);
-
-	printf("\nValores: \n");
-
-	for (i=0; i<tamanho; i++)
- 
-		scanf("%d", &vet[i]);
-
-	printf("\nmedia = %f", media(sm(tamanho, vet), tamanho));
-
+    unsigned int N;
+    pt *p;
+    printf("Quais pontos?: ");
+    scanf("%u", &N); 
+	getchar();
+	p = gera_pontos(N);
+	mostra_pontos(p, p+N);
+	free(p);
 	return 0;
-
 }
+
