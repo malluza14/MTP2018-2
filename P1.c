@@ -13,6 +13,7 @@ int main()
     while (bits[i] != '\0')
       {
         if (estado == 0 && bits[i] == '0')
+        {
           estado = 0;
           printf("estado = 0 \n");
         else if(estado == 0 && bits[i] == '1')
@@ -34,6 +35,7 @@ int main()
           printf("estado = 2 \n");
         }
         i++;
+        }
      }
     if (estado == 0)
     {
