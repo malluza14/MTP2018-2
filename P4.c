@@ -2,45 +2,19 @@
 // *11811EBI023*//
 #include <stdio.h>
 
-int pot(int n)
+ double f(float m, float n)
 {
-	if (n== 0)
-		return 1;
-
-	int resultado = 1;
-	for (int i = 0; i < n; i++)
-	{
-		resultado = resultado * 10;
-	}
-	return resultado;
+	if(m==0)
+		return n+1;
+	else if(m>0 && n==0)
+		return f(m-1,1);
+	else if(m>0 && n>0)
+		return f(m-1, f(m, n-1));
 }
-int main()
+ int main ()
 {
-	char numero_str[256];
-	int numero_int = 0;
-	int t = 0, i = 0, j = 0;
-
-	printf("Digite o numero: ");
-	scanf("%s", numero_str);
-
-
-	while (numero_str[i] != '\0')
-	{
-		t++;
-		i++;
-	}
-
-	for (i = t - 1; i >= 0; i--)
-	{
-		if ((int)numero_str[i] < 48 || (int)numero_str[i] > 57)
-		{
-			continue;
-		}
-		numero_int += ((int)numero_str[i] - 48) * potencia(j);
-		j++;
-	}
-	printf("\nNumero inteiro: %d\n\n", numero_int);
-	
-	return 0; 
+	float m, n;
+	scanf ("%f %f", &m, &n);
+	printf("%g + %g = %g", m, n, f(m,n));
+	return 0;
 }
-    
