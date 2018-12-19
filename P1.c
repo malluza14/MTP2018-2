@@ -42,8 +42,7 @@ int main()
           estado = 1 ;
           printf("estado = 2 \n");
         }
-        i++;
-        }
+        i++
      }
     if (estado == 0)
     {
