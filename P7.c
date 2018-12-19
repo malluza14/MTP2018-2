@@ -11,7 +11,7 @@ typedef struct
 	float y;
 }pt;
 
-pt * gera_pontos(int N) 
+pt * gera_pontos(int N)
 {
     pt * p = (pt*) calloc(N,sizeof(pt));
     int i;
@@ -23,16 +23,16 @@ pt * gera_pontos(int N)
     return p;
  }
 
-void mostra_pontos(pt * p_i, pt * p_f)
+void mostra_pontos(pt* p_i, pt* p_f)
 {
-    if(p_i < p_f) 
+    if(p_i < p_f)
     {
         printf("(%.3f, %.3f)\n", p_i->x, p_i->y);
         mostra_pontos(p_i+1, p_f);
     }
 }
 
-void grava_pontos(p * p_i, int n)
+void grava_pontos(pt* p_i, int n)
 {
   FILE * arq;
   arq = fopen("pontos.dat", "wb");
@@ -66,7 +66,7 @@ pt * le_arq(char *nome_arq, unsigned int * pn)
 }
 
 
-int main() 
+int main()
 {
     unsigned int N;
     int op=0;
@@ -87,7 +87,7 @@ int main()
             }
 
 		case 2:
-		{ 
+		{
      p= le_arq("pontos.dat", &N);
 		 mostra_pontos(p, p+N);
 		 break;
